@@ -35,6 +35,15 @@ YouTube’s 2026 reviewers look for evidence of a human editor. **Never just upl
 3. **Engagement**: Pin a comment asking a specific question once the video goes live.
 
 ---
+## Phase 5: Git-Based Production Tracking
+To keep your channel organized as you grow, use Git to track your "Version History":
 
+1. **Branch per Video**: Instead of editing `script.md` directly, create a new branch for each video:
+   - `git checkout -b video/01-doing-nothing`
+2. **Commit as you go**: Once you finish the voiceover, commit the file. Once you finish the animation, commit the tracker update.
+   - `git commit -m "Voiceover completed for Ep 01"`
+3. **GitHub Issues**: Use GitHub Issues inside your repo to track "To-Do" items for each video. Label them as `voiceover`, `animation`, or `ready-to-upload`.
+
+---
 ## My Recurring Instructions
 "When you want a new video, just say: **'Write a new script for [Topic] in Ghibli style. [Summer/Winter] setting.'** I will then provide the full production package following this playbook."
