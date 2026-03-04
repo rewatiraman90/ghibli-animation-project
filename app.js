@@ -94,10 +94,8 @@ function nextStep(event) {
 }
 
 function createNewVideo() {
-    if (confirm("Start a new video production session? Your current progress will reset.")) {
-        currentStep = 0;
-        renderSteps();
-    }
+    currentStep = 0;
+    renderSteps();
 }
 
 document.addEventListener('DOMContentLoaded', renderSteps);
