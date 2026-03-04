@@ -15,9 +15,15 @@ For every new video, I will generate:
 ---
 
 ## Phase 2: Asset Production (Your Toolkit)
-1. **Voice (ElevenLabs)**: Use the "Soft Storyteller" voice. **CRITICAL**: Set Stability to **40%** to add "human breathing" signals.
-2. **Keyframes (Midjourney/Flux)**: Use the "Identity Anchor" from [visual_dna.md](file:///Users/rewatiraman/.gemini/antigravity/brain/b562c297-dff3-461d-b54e-3c83d1cab7f0/visual_dna.md) as a character reference image.
-3. **Animation (Runway/Luma)**: Upload the keyframe + the Visual Cue prompt. Use "Subtle Movement" settings to keep the watercolor texture intact.
+1. **Voice**: 
+   - *Paid*: ElevenLabs (Higher quality).
+   - *Free*: **Google AI Studio (Gemini)** or **Luvvoice**.
+2. **Keyframes**: 
+   - *Paid*: Midjourney.
+   - *Free*: **Leonardo.ai** (150 daily credits) or **SeaArt.ai**.
+3. **Animation**: 
+   - *Paid*: Runway Gen-3.
+   - *Free*: **Kling AI** (66 daily credits) or **1min.AI**.
 
 ---
 
