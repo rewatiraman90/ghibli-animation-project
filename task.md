@@ -1,0 +1,21 @@
+# Task: Studio Ghibli YouTube Animation Script
+
+- [x] Define Visual DNA and Character Identity Anchor <!-- id: 0 -->
+- [x] Research and refine the "Ghibli-style" narrative approach (Ma concept) <!-- id: 1 -->
+- [x] Write the script (5-8 minutes) with all required markers <!-- id: 2 -->
+    - [x] The Hook (0:00-0:15) <!-- id: 3 -->
+    - [x] The Setup (0:15-1:00) <!-- id: 4 -->
+    - [x] Narrative Act 1: The Noise <!-- id: 5 -->
+    - [x] Narrative Act 2: The Silence (Personal Experience) <!-- id: 6 -->
+    - [x] Narrative Act 3: The Resolution <!-- id: 7 -->
+    - [x] Outro with controversial question <!-- id: 8 -->
+- [x] Insert Visual Cues [GHIBLI VISUAL], Scene Changes [SCENE CHANGE/ZOOM], and Sound Effects [SOUND EFFECT] <!-- id: 9 -->
+- [x] Add 2026 Monetization Markers ([MARK: ALTERED CONTENT]) <!-- id: 10 -->
+- [x] Generate Master Reference Image prompt and Style Dictionary <!-- id: 11 -->
+- [x] Final Review against 2026 Safety Checklist <!-- id: 12 -->
+- [x] Create Production Tracker CSV for Excel/Trae <!-- id: 13 -->
+- [/] Upload to GitHub <!-- id: 14 -->
+    - [ ] Create workspace directory <!-- id: 15 -->
+    - [ ] Copy artifacts to workspace <!-- id: 16 -->
+    - [ ] Initialize git and create GitHub repo <!-- id: 17 -->
+    - [ ] Push to main <!-- id: 18 -->
