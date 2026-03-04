@@ -18,3 +18,9 @@ Every prompt for the main character must include this description:
 ## Animation Guardrails
 - **Movement**: Subtle wind in hair, swaying grass, slow blinks.
 - **Camera**: Mostly static wide shots or slow pans/zooms to emphasize "Ma".
+
+## Free Tool Recommendations
+If you don't use Midjourney, use these high-quality free alternatives:
+1. **SeaArt.ai**: Excellent for Ghibli styles, has free daily credits.
+2. **Leonardo.ai**: 150 free credits daily, very high quality.
+3. **Microsoft Designer**: Completely free (uses DALL-E 3).

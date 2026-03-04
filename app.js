@@ -13,7 +13,7 @@ const steps = [
         description: "Generate the Master Reference Image for Elara. This ensures she looks the same in every shot.",
         action_text: "Copy Master Prompt",
         prompt: "Studio Ghibli style, a 12-year-old girl with a soft round face and messy black hair with a red ribbon, wearing an indigo sweater and cream overalls, Standing in a lush green meadow, watercolor textures, 90s cel-shaded anime look --ar 16:9",
-        link: "https://midjourney.com"
+        link: "https://www.seaart.ai"
     },
     {
         id: 3,
@@ -94,7 +94,7 @@ function nextStep(event) {
 }
 
 function createNewVideo() {
-    if(confirm("Start a new video production session? Your current progress will reset.")) {
+    if (confirm("Start a new video production session? Your current progress will reset.")) {
         currentStep = 0;
         renderSteps();
     }
