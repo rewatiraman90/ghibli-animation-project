@@ -4,6 +4,10 @@ from agno.models.openai import OpenAIChat
 from elevenlabs import ElevenLabs
 from textwrap import dedent
 from uuid import uuid4
+from dotenv import load_dotenv
+
+# Load secret keys from .env file
+load_dotenv()
 
 # NOTE: If you prefer Gemini, uncomment the import below and change the model in __init__
 # from agno.models.google import Gemini 
@@ -14,7 +18,6 @@ class GhibliAutomation:
         self.eleven_key = elevenlabs_key or os.getenv("ELEVENLABS_API_KEY")
         
         # 1. Script & Visual Cue Agent (The "Director")
-        # We use OpenAI by default here because of specific dependency issues with Gemini on Python 3.9
         self.director = Agent(
             name="GhibliDirector",
             model=OpenAIChat(id="gpt-4o", api_key=self.openai_api_key),
@@ -37,7 +40,7 @@ class GhibliAutomation:
         )
 
     def generate_video_package(self, topic):
-        print(f"🎬 Starting production for: {topic}")
+        print(f"\n🎬 Starting production for: {topic}")
         
         # Step A: Generate Script & Visual Breakdown
         print("✍️ Generating script and visual cues...")
@@ -45,11 +48,13 @@ class GhibliAutomation:
         content = response.content
         
         # Step B: Voice Synthesis (ElevenLabs)
-        if self.eleven_key:
+        if self.eleven_key and "sk_" in self.eleven_key:
             print("🎙️ Synthesizing voiceover (Soft Storyteller, Stability 40%)...")
             client = ElevenLabs(api_key=self.eleven_key)
+            # For demo, we just use the first 500 characters to save credits
+            audio_text = content[:1000] 
             audio_generator = client.text_to_speech.convert(
-                text=content, 
+                text=audio_text, 
                 voice_id="JBFqnCBsd6RMkjVDRZzb", 
                 model_id="eleven_multilingual_v2"
             )
@@ -60,18 +65,28 @@ class GhibliAutomation:
                 for chunk in audio_generator:
                     if chunk: f.write(chunk)
             print(f"✅ Voiceover saved to: {filename}")
+        else:
+            print("⚠️ Skipping Voiceover: ElevenLabs API Key missing or invalid.")
         
         # Step C: Visual Prompt Sheet
-        print("🖼️ Production package complete. Copy visual cues to Runway Gen-3/SeaArt.")
+        print("\n� PRODUCTION PACKAGE COMPLETE")
+        print("-------------------------------")
+        print(content[:500] + "...") # Show a snippet
+        print("-------------------------------")
+        print("💡 NEXT STEP: Take the [GHIBLI VISUAL] prompts above and paste them into Runway Gen-3 or Luma Dream Machine.")
         return content
 
 if __name__ == "__main__":
-    # Test the logic (Dry Run)
-    auto = GhibliAutomation(openai_api_key="MOCK_KEY", elevenlabs_key=None)
-    print("--- STARTING TEST RUN ---")
-    try:
-        print("Model ID:", auto.director.model.id)
-        print("Agent Name:", auto.director.name)
-        print("✅ Automation Logic Initialized Successfully.")
-    except Exception as e:
-        print(f"❌ Initialization failed: {e}")
+    # Check if we have real keys
+    has_openai = os.getenv("OPENAI_API_KEY") and "sk-" in os.getenv("OPENAI_API_KEY")
+    
+    if not has_openai:
+        print("--- RUNNING IN TEST MODE (No OpenAI Key Found) ---")
+        auto = GhibliAutomation(openai_api_key="MOCK_KEY")
+        print(f"✅ Agent '{auto.director.name}' initialized and ready.")
+        print("👉 Please add your OPENAI_API_KEY to the .env file to start real production.")
+    else:
+        print("🚀 STARTING REAL PRODUCTION...")
+        auto = GhibliAutomation()
+        topic = input("Enter a video topic (e.g. 'Rainy day in a small village'): ") or "The Art of Doing Nothing"
+        auto.generate_video_package(topic)
